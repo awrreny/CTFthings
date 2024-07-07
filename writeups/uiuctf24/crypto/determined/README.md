@@ -1,17 +1,17 @@
 
 ## Determined
 
-### Setup:
+### Setup
 - The flag is encrypted with RSA in `gen.py`. We can find `p` and `q` because they are reused in `server.py`.
 - `server.py` accepts input, forms a matrix containing `p`, `q` and user inputs, then computes and outputs a function of the matrix.
 ---
-### tldr:
+### tl;dr
 - Replacing `p`, `q`, `r` with `sympy` symbols makes `server.py` output an expression e.g `p*q - p*r - q + r`
 - Giving the same input to the actual server will give you the number which is equal to the expression, e.g `6914370386314159269442068348 = p*q - p*r - q + r`
 - Repeat this to get at least 3 equations which can be solved.
 - Alternate solution: It is also possible to solve this with one ncat request with a input such that the output equals `q`.
 ---
-### Solution 1
+### Solution 1 (multiple ncat commands)
 `server.py` takes in user input, and uses it to create a matrix.
 This matrix contains the input as well as the numbers `p`, `q` and `r`.
 
@@ -104,7 +104,7 @@ print(long_to_bytes(m).decode())
 ```
 
 
-### Solution 2
+### Solution 2 (one ncat command)
 ---
 
 After the CTF ended, I heard that it was possible to solve this challenge with only one equation (one ncat request): let's see how we can do this.
