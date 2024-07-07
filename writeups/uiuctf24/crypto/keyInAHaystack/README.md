@@ -14,6 +14,7 @@ It's possible to solve this with little (human) effort by putting the haystack n
 
 
 I heard about `gmp-ecm` from [rubixcyouber](https://discord.com/channels/722150434566963293/1257123741356265522/1257129480468824144) from the uiuctf discord and gave it a try.
+If you were solving this by yourself you might've found `gmp-ecm` from searching "ecm factoring method github" which gives [another tool](https://github.com/GiacomoPope/LenstraECM) which mentions `gmp-ecm` as a faster alternative. Or from sage, `gmp-ecm` is the tool used in sage to do [ECM](https://doc.sagemath.org/html/en/reference/interfaces/sage/interfaces/ecm.html). Or, you could find another tool and use that.
 
 From [this documentation](https://www.systutorials.com/docs/linux/man/1-gmp-ecm/) and help from ChatGPT, I learned that a larger `B1` gives a higher probability of finding a factor per curve, but a larger running time, so I have to find a `B1` which is low but doesn't take too many curves to find the prime.
 
