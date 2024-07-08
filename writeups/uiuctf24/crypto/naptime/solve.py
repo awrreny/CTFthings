@@ -4,15 +4,16 @@ def getMappings(a):
     out = dict()
     # for every possible ASCII char
     for char in string.printable:
-        out[byteToCtVal(a, ord(char))] = char
+        out[encrypt(char, a)] = char
     return out
 
 
-def byteToCtVal(a, byte):
+def encrypt(char, a):
+    charVal = ord(char)
     total = 0
-    for i in range(7, -1, -1):
-        if byte & 1: total += a[i]
-        byte >>= 1
+    for i in range(len(a) - 1, -1, -1):
+        if charVal & 1: total += a[i]
+        charVal >>= 1
     return total
 
 a =  [66128, 61158, 36912, 65196, 15611, 45292, 84119, 65338]
